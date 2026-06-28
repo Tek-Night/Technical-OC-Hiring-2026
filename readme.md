@@ -1,4 +1,4 @@
-![Header](Assets/Header.png)
+![Header](Assets/header.png)
 # Technical Head Hiring 2026-27
 
 This document talks about the tasks involved for each leading role in the Enigma OC. These technical tasks have been curated by us to evaluate and understand what you can bring to the table if you were to be an Organising Committee member of Enigma. We evaluate your foundational technical understanding, implementation abilities, ability to tackle projects, and your ability to deal with realistic work while running and leading Enigma.
