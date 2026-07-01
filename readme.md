@@ -1,4 +1,4 @@
-![Header](Assets/Header.png)
+![Header](Assets/header.png)
 # Technical Head Hiring 2026-27
 
 This document talks about the tasks involved for each leading role in the Enigma OC. These technical tasks have been curated by us to evaluate and understand what you can bring to the table if you were to be an Organising Committee member of Enigma. We evaluate your foundational technical understanding, implementation abilities, ability to tackle projects, and your ability to deal with realistic work while running and leading Enigma.
@@ -8,6 +8,8 @@ Some general points to note for any task, regardless of domain and focus, are:
 
 Each task will have an in-depth discussion and questioning during the interview to ensure the legitimacy of your problem-solving skills and foundational theoretical understanding.
 
+You should be prepared for a workshop-style interview where you will have to explain your task in detail and engage in discussions about it. The discussion will be at a level where the listeners should be able to replicate the task or project from scratch, which helps test your technical understanding and your teaching or explaining capabilities.
+
 You are allowed to use any tool at your disposal — GenAI, online resources, etc. However, you are expected to be transparent about the resources you used from the perspective of future members/enthusiasts requiring the same resources for their learning or efficiency for the same project.
 
 All the implementations of these tasks are **NOT** expected to be perfect, a simple prototype with the minimal requirements is sufficient.
@@ -15,9 +17,9 @@ All the implementations of these tasks are **NOT** expected to be perfect, a sim
 Your project must be open-source and submitted on the Enigma Repository, please follow the submission guidelines here 
 
 ### What is the video demo?
-For each task, all heads are required to submit a video demo which is in the view of explaining the project to a person/member who wishes to replicate, understand or work with you regarding this project you have worked on – a common scenario while working with a Computer Science community.
+For each task, all heads are required to submit a video demo which is meant to explain the project to a person/member who wishes to replicate, understand, or work with you on it.
 
-The video should be according to the stated requirements and cover the learning path, subject matter, resources, and project timeline. Demonstrate the project's functionality. While detailed concept explanations aren't needed, provide relevant resources. Discuss future learning prospects and potential implementations.
+This video is an important part of your evaluation. It will be used by the judging panel to understand your technical understanding, problem-solving approach, and ability to explain your work clearly. The video should be according to the stated requirements and cover the learning path, subject matter, resources, and project timeline. Demonstrate the project's functionality. While detailed concept explanations aren't needed, provide relevant resources. Discuss future learning prospects and potential implementations.
 
 
 ## General Guide for Contribution:
