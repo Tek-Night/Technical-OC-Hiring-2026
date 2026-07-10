@@ -2,27 +2,48 @@
 
 ## Task
 
-Create and deploy a small beginner-friendly CTF challenge for an Enigma cybersecurity event. (Example: Build a vulnerable login page where users must find the flag through basic SQL injection or hidden source code.)
+Design and demonstrate a server–client OS security lifecycle.
 
-What they should build:
-One or two simple challenges from categories like web exploitation, cryptography, OSINT, Linux basics, networking, or forensics.
+Build a server OS and a client OS environment that shows a complete security lifecycle for a small networked system. The task should include:
 
-Minimum requirements:
-- Challenge description
-- Flag format
-- Dockerized setup or local setup
-- Hints
-- Solution/writeup
-- Safety notes
-- Reset instructions
-- Participant instructions
+1. Building the server and client environments
+2. Establishing communication between them
+3. Implementing journaling/logging
+4. Demonstrating one controlled attack or weakness
+5. Patching or mitigating the issue
+6. Proving that the patch works
 
-### Success Criteria
-- Build a working challenge that can be reproduced easily.
-- Include all required documentation and setup instructions.
-- Show understanding of basic cybersecurity concepts and safe challenge design.
-- Explain the challenge clearly enough for another person to run and solve it.
-- Provide a short demo or walkthrough of the challenge setup.
+You are free to choose the tools, architecture, operating systems, services, and attack scenario.
 
-### Technical Demo Video
-A short technical demo video is necessary for this task. The video should show the challenge setup in action and explain how it works. In the interview, we will ask about the implementation, challenge design choices, and how you would explain the setup to someone else from scratch.
+---
+
+## Submission Requirements
+
+Present your work with the following:
+
+- A clear description of the server/client environment and the intended workflow
+- The selected attack or weakness and why it is relevant
+- Implementation details for the logging/journaling system
+- Evidence of the attack or weakness in action
+- A patch or mitigation strategy
+- Proof that the mitigation works after the patch
+- Any diagrams or architecture notes that explain the system
+
+---
+
+## Success Criteria
+
+Evaluation will be based on:
+
+- Technical depth and correctness of the environment
+- Clarity of the design and documentation
+- Security understanding demonstrated through the chosen attack and mitigation
+- Quality of journaling/logging and how it supports investigation
+- Creativity and feasibility of the chosen scenario
+- Clear proof of the attack-to-patch lifecycle
+
+---
+
+## Presentation
+
+Prepare a short explanation of your design, the attack scenario, the mitigation, and how the system works. This should be suitable for a demo or interview discussion.
