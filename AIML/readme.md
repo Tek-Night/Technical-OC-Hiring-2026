@@ -1,14 +1,66 @@
 # AI/ML Head
 
 ## Task
-Build a RAG-based chatbot that helps freshers at the university by answering common questions about campus life, academics, clubs, and basic student resources. The chatbot should be able to answer questions using a small knowledge base created from university-related documents, FAQs, or text data. The task should demonstrate retrieval, prompt handling, response generation, and basic evaluation of answer quality.
 
-### Success Criteria
-- Use a clear and relevant dataset.
-- Show a complete workflow from data loading to model evaluation.
-- Include at least one baseline model and one improved approach.
-- Explain key metrics such as accuracy, precision, recall, or F1-score.
-- Provide simple documentation so someone else could reproduce the project.
+Build a deep learning model for image upscaling (super-resolution) using only a folder of ordinary target-resolution images.
 
-### Technical Demo Video
-A short technical demo video is necessary for this task. The video should show the project working, explain the approach clearly, and highlight the key decisions made during development. During the interview, we will ask about the project, your thought process, and how you would explain it to someone who wants to recreate it from scratch.
+You do not have access to a premade low-res/high-res dataset, and you cannot download one. All you have is a folder of ordinary target-resolution images - you may use any source, between 300 and 1000 images. There is no X (input) without you creating it. Your task is to construct the training pairs yourself, justify how you did it, and use them to actually train a model.
+
+---
+
+## Submission Requirements
+
+Your submission should include:
+
+### 1. Data and Degradation Strategy
+
+- Describe how you generate the low-res input from each high-res target
+- Explain the chosen degradation strategy and why it is appropriate
+- Discuss the scale factor and how it affects training and generalization
+- Explain what happens if the degradation is too clean or too simple
+- Describe how you split the data and how you avoided leakage
+
+### 2. Model Design
+
+- Explain your model architecture and justify the design choice
+- Discuss the loss function you used and why it is suitable for this task
+- Compare your chosen approach with at least one alternative you considered
+
+### 3. Evaluation and Analysis
+
+- Explain what metrics you use to judge upscaling quality
+- Show how you evaluate the model beyond just loss values
+- Include a comparison between a baseline model and your final model
+
+---
+
+## Key Deliverables
+
+Your submission should include:
+
+- Working code covering data setup, generation of train/val samples, the model, training loop, and evaluation
+- Training progression images showing input, target, and model output at regular intervals
+- A short write-up covering the points above
+- A README and requirements file so the project can be run cleanly
+- Model configuration files in a structured format such as JSON
+- Separate scripts or entry points for each trained model configuration
+- A short demo video explaining the implementation, reasoning, and results if possible
+
+---
+
+## Success Criteria
+
+Evaluation will be based on:
+
+- Technical understanding and reasoning behind your design choices
+- Quality of research and justification for the chosen methods
+- Soundness of the architecture and loss-function decisions
+- Quality of evaluation and comparison between models
+- Replicability of the code and results
+- Clarity of documentation and presentation
+
+---
+
+## Presentation
+
+Prepare a short presentation or walkthrough explaining your approach, your reasoning, your results, and how your model was trained and evaluated.
