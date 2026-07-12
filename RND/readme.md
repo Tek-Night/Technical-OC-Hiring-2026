@@ -94,6 +94,6 @@ Evaluation will be based on:
 
 Prepare a **10–15 minute presentation** explaining your two project proposals, the architecture of your selected PoC, the reasoning behind your technical decisions, and how you would lead the project from ideation to completion.
 
-## Additional Resourcs
+## Additional Resources
 
 For more clarity on any of our subcommittees, find the official roles & responsibilities club charter here: https://docs.google.com/document/d/1R8QjGjWQob8PYFSnvxot7eX4Ok1Hb64YoTHR6spJdKU/edit?tab=t.0#heading=h.5py673nna8ai

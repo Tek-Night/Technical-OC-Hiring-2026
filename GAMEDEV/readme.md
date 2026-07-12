@@ -1,19 +1,27 @@
 # Game Development Head 
 
 ## Task
-Create any type of game you want, using the following theme and twist:
 
-- Theme: Water
-- Twist: Temperature
+Participate in the ongoing itch.io game jam and submit a game for the role of Game Development Head.
 
-You are free to choose the genre, perspective, and scale of the game. The goal is to build a complete, playable prototype that clearly uses the theme and twist in a creative and understandable way. The game should include core gameplay mechanics, clear objectives, and a polished experience that feels intentional rather than random.
+The Game Development Head has already started an itch.io jam that is open for participation from May 27, 2026 at 10:30 PM to August 1, 2026 at 10:30 AM.
+
+Jam link: https://itch.io/jam/games-for-throne-jam
+
+Anyone can participate in the jam and submit their game. There are no constraints or theme, so participants are free to make anything they want.
+
+The judging panel will review every submission and select the next Game Development Head based on the best game submitted.
+
+For further information or contact, please join the WhatsApp group: https://chat.whatsapp.com/Fd0dYyn1WpZ9fBrXAaIlsc
 
 ### Success Criteria
-- The game should be playable from start to finish.
-- Include core mechanics such as movement, scoring, win/lose conditions, or level progression.
-- Show basic game architecture with organized code and readable structure.
-- Be able to explain design choices, gameplay loop, and possible improvements.
-- Provide a short walkthrough or demo that someone can understand and run easily.
+
+- Submit a complete and playable game to the jam.
+- Show creativity, originality, and clear design choices in the game.
+- Demonstrate strong game mechanics, polish, and user experience.
+- Make the game understandable and enjoyable for players.
+- Be prepared to explain your design decisions, development process, and gameplay choices during the interview.
 
 ### Technical Demo Video
-A short technical demo video is necessary for this task. It should demonstrate the gameplay, explain the core mechanics, and show how the project was built. In the interview, we will ask questions about the implementation, design decisions, and how you would explain the project to someone who wants to recreate it from scratch.
+
+A short technical demo video is necessary for this task. It should showcase the gameplay, explain the core mechanics, and highlight the creative choices behind the game. In the interview, we will ask questions about your implementation, design decisions, and how you would explain the project to someone who wants to recreate it from scratch.
