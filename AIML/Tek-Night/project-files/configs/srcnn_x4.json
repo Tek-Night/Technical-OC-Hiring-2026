@@ -27,7 +27,8 @@
   },
 
   "dataset": {
-    "hr_patch_size": 128
+    "hr_patch_size": 128,
+    "channels": 3
   },
 
   "degradation": {

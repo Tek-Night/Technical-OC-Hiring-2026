@@ -8,15 +8,18 @@
 .venv/
 venv/
 
-# Python
+
 __pycache__/
 *.py[cod]
 
 # Outputs
 project-files/outputs/
 
-# Dataset (keep locally, don't upload)
-project-files/dataset/raw_hr/
+# Dataset 
+project-files/dataset/raw_hr
+project-files/dataset/test
+project-files/dataset/train
+project-files/dataset/val
 
 # Future model files
 checkpoints/
