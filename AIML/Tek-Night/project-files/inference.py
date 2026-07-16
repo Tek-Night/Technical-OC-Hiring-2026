@@ -1,82 +1,133 @@
+import argparse
 import json
 import os
 
-import matplotlib.pyplot as plt
+import torch
+import torch.nn.functional as F
+
 from PIL import Image
+from torchvision import transforms
+
+from models.srcnn import SRCNN
+from models.espcn import ESPCN
 
 from data.degradation import degrade_image
+from utils.visualization import save_prediction_images
 
 
-def load_config(config_path):
-    """Load a JSON configuration file."""
-    with open(config_path, "r") as file:
-        return json.load(file)
+def load_config(path):
+    with open(path, "r") as f:
+        return json.load(f)
+
+
+def get_device():
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    elif torch.backends.mps.is_available():
+        return torch.device("mps")
+    return torch.device("cpu")
+
+
+def create_model(model_name, device):
+
+    if model_name.upper() == "SRCNN":
+        model = SRCNN()
+
+    elif model_name.upper() == "ESPCN":
+        model = ESPCN()
+
+    else:
+        raise ValueError(f"Unknown model: {model_name}")
+
+    return model.to(device)
 
 
 def main():
-    # -------------------------------
-    # Paths
-    # -------------------------------
-    config_path = "configs/espcn_x4.json"
 
-    # Change this to any image you want to test
-    image_path = "dataset/raw_hr/0001.png"
+    parser = argparse.ArgumentParser(
+        description="Run inference on a single image."
+    )
 
-    output_dir = "outputs"
-    output_path = os.path.join(output_dir, "degradation_test.png")
+    parser.add_argument(
+        "--config",
+        required=True,
+        help="Path to config file"
+    )
 
-    os.makedirs(output_dir, exist_ok=True)
+    parser.add_argument(
+        "--checkpoint",
+        required=True,
+        help="Path to trained checkpoint"
+    )
 
-    # -------------------------------
-    # Load configuration
-    # -------------------------------
-    config = load_config(config_path)
+    parser.add_argument(
+        "--image",
+        required=True,
+        help="Path to input image"
+    )
 
-    # -------------------------------
-    # Load HR image
-    # -------------------------------
-    hr_image = Image.open(image_path).convert("RGB")
+    args = parser.parse_args()
 
-    # -------------------------------
-    # Apply degradation pipeline
-    # -------------------------------
-    lr_image = degrade_image(hr_image, config)
+    config = load_config(args.config)
 
-    # -------------------------------
-    # Print useful information
-    # -------------------------------
-    print("=" * 40)
-    print("Degradation Test")
-    print("=" * 40)
-    print(f"Original Size : {hr_image.size}")
-    print(f"Degraded Size : {lr_image.size}")
-    print(f"Scale Factor  : {config['model']['scale_factor']}")
-    print("=" * 40)
+    device = get_device()
 
-    # -------------------------------
-    # Display comparison
-    # -------------------------------
-    plt.figure(figsize=(10, 5))
+    os.makedirs("outputs", exist_ok=True)
 
-    plt.subplot(1, 2, 1)
-    plt.imshow(hr_image)
-    plt.title("High Resolution")
-    plt.axis("off")
+    model = create_model(
+        config["model"]["name"],
+        device
+    )
 
-    plt.subplot(1, 2, 2)
-    plt.imshow(lr_image)
-    plt.title("Low Resolution")
-    plt.axis("off")
+    checkpoint = torch.load(
+        args.checkpoint,
+        map_location=device
+    )
 
-    plt.tight_layout()
+    model.load_state_dict(
+        checkpoint["model_state_dict"]
+    )
 
-    # -------------------------------
-    # Save comparison
-    # -------------------------------
-    plt.savefig(output_path, dpi=300)
-    print(f"Comparison image saved to: {output_path}")
+    model.eval()
 
-    plt.show()
+    transform = transforms.ToTensor()
+
+    hr_image = Image.open(args.image).convert("RGB")
+
+    lr_image = degrade_image(
+        hr_image,
+        config
+    )
+
+    hr_tensor = transform(hr_image)
+
+    lr_tensor = transform(lr_image)
+
+    model_input = lr_tensor.unsqueeze(0).to(device)
+
+    if config["model"]["name"].upper() == "SRCNN":
+
+        model_input = F.interpolate(
+            model_input,
+            scale_factor=4,
+            mode="bicubic",
+            align_corners=False
+        )
+
+    with torch.no_grad():
+
+        prediction = model(model_input)
+
+    save_prediction_images(
+        model_input[0].cpu(),
+        prediction[0].cpu(),
+        hr_tensor,
+        epoch=0,
+        output_dir="outputs"
+    )
+
+    print("Inference completed.")
+    print("Results saved to outputs/")
 
 
 if __name__ == "__main__":

@@ -11,9 +11,9 @@
   },
 
   "training": {
-    "epochs": 50,
+    "epochs": 10,
     "batch_size": 16,
-    "num_works": 4,
+    "num_workers": 0,
     "save_every": 5
   },
 
