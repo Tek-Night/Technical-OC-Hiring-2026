@@ -23,6 +23,7 @@ def load_config(path):
         return json.load(f)
 
 
+
 def get_device():
 
     if torch.cuda.is_available():
@@ -34,6 +35,7 @@ def get_device():
     return torch.device("cpu")
 
 
+
 def count_parameters(model):
 
     return sum(
@@ -41,6 +43,7 @@ def count_parameters(model):
         for p in model.parameters()
         if p.requires_grad
     )
+
 
 
 def load_model(model, checkpoint_path, device):
@@ -83,6 +86,50 @@ def create_test_loader(config):
 
 
 
+def evaluate_bicubic(test_loader):
+
+    total_psnr = 0.0
+    total_ssim = 0.0
+
+
+    with torch.no_grad():
+
+        for lr, hr in test_loader:
+
+            prediction = F.interpolate(
+                lr,
+                scale_factor=4,
+                mode="bicubic",
+                align_corners=False
+            )
+
+
+            for pred_img, target_img in zip(
+                prediction.numpy(),
+                hr.numpy()
+            ):
+
+                total_psnr += calculate_psnr(
+                    pred_img,
+                    target_img
+                )
+
+                total_ssim += calculate_ssim(
+                    pred_img,
+                    target_img
+                )
+
+
+    n = len(test_loader.dataset)
+
+
+    return (
+        total_psnr / n,
+        total_ssim / n
+    )
+
+
+
 def evaluate(model, test_loader, device):
 
     criterion = nn.L1Loss()
@@ -100,7 +147,7 @@ def evaluate(model, test_loader, device):
             hr = hr.to(device)
 
 
-            # SRCNN requires bicubic upscaled input
+            # SRCNN needs bicubic upscaled input
             if isinstance(model, SRCNN):
 
                 lr = F.interpolate(
@@ -174,7 +221,6 @@ def benchmark_speed(
     input_tensor = input_tensor.to(device)
 
 
-    # warmup
     with torch.no_grad():
 
         for _ in range(10):
@@ -240,6 +286,67 @@ def main():
 
     results = []
 
+
+    # ==========================
+    # Bicubic baseline
+    # ==========================
+
+    print("\n" + "="*40)
+    print("BICUBIC")
+    print("="*40)
+
+
+    config = load_config(
+        "configs/espcn_x4.json"
+    )
+
+    test_loader = create_test_loader(
+        config
+    )
+
+
+    bicubic_psnr, bicubic_ssim = evaluate_bicubic(
+        test_loader
+    )
+
+
+    print(
+        f"Parameters : 0"
+    )
+
+    print(
+        f"Test Loss  : N/A"
+    )
+
+    print(
+        f"PSNR       : {bicubic_psnr:.4f}"
+    )
+
+    print(
+        f"SSIM       : {bicubic_ssim:.4f}"
+    )
+
+    print(
+        f"Speed      : N/A"
+    )
+
+
+    results.append(
+        [
+            "Bicubic",
+            0,
+            "N/A",
+            bicubic_psnr,
+            bicubic_ssim,
+            "N/A"
+        ]
+    )
+
+
+
+    # ==========================
+    # SRCNN + ESPCN
+    # ==========================
 
     for name, info in models.items():
 
@@ -325,6 +432,7 @@ def main():
     ) as f:
 
         writer = csv.writer(f)
+
 
         writer.writerow(
             [
