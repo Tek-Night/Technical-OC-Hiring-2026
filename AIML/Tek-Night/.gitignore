@@ -8,6 +8,8 @@
 .venv/
 venv/
 
+#Outputs
+outputs/
 
 __pycache__/
 *.py[cod]

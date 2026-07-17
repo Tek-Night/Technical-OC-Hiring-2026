@@ -16,16 +16,14 @@ Test	            50
 
 ### Degradation pipeline:
 
-HR image
-    |
-    |
-Crop 128x128
-    |
-    |
-Downsample x4
-(added gaussian blur, bicubic downsampling,
-jpeg compression, gaussian noise)
-    |
-    |
-LR image
-(32x32)
+HR
+ |
+Gaussian Blur
+ |
+Downsample ×4
+ |
+JPEG Compression
+ |
+Gaussian Noise
+ |
+LR

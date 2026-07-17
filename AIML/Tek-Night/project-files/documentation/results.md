@@ -15,3 +15,8 @@ ESPCN       37,200          22.91       0.5824      0.295 ms
 - ESPCN provides faster inference by performing feature extraction in low-res space and using pixelshuffle for upscaling.
 
 - Neural networks could achieve higher scores with larger datasets, deeper architectures, longer training and more advanced loss functions
+
+## Sources
+
+- https://arxiv.org/ for research papers 
+- AI for helping with benchmark, suggesting improvements and simple code debugging.
