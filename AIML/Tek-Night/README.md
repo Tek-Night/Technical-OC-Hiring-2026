@@ -173,6 +173,9 @@ python inference.py --config configs\srcnn_x4.json --checkpoint checkpoints\srcn
 ```bash
 python benchmark.py
 ```
+Make sure to be in Tek-night/project-files for the commands to work
+Outputs are saved in **outputs/epoch_000.png** for now
+
 
 # What can be improved:
 
