@@ -1,10 +1,11 @@
 ## Quantitative results
 
-Model       Parameters      PSNR        SSIM        Time
 
-Bicubic     0               24.34       0.6398      N/A
-SRCNN       20,099          23.90       0.6381      0.415 ms
-ESPCN       37,200          22.91       0.5824      0.295 ms
+| Model | Parameters | PSNR | SSIM | Inference Time |
+|-------|-----------:|-----:|-----:|---------------:|
+| Bicubic | 0 | 24.34 | 0.6398 | N/A |
+| SRCNN | 20,099 | 23.90 | 0.6381 | 0.415 ms |
+| ESPCN | 37,200 | 22.91 | 0.5824 | 0.295 ms |
 
 ## Observations
 

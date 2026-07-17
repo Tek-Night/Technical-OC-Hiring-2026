@@ -9,10 +9,11 @@ The images were split into train, validation and test accordingly:
 
 Table:
 
-**Split**	       **Images**
-Train	            700
-Validation	        50
-Test	            50
+| Split | Images |
+|-------|-------:|
+| Train | 700 |
+| Validation | 50 |
+| Test | 50 |
 
 ### Degradation pipeline:
 
