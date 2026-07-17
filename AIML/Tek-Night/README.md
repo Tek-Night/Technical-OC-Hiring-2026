@@ -33,6 +33,10 @@ Split:
    Validation: 50
    Testing: 50
 
+## How to download? 
+
+Paste this in your browser: **https://data.vision.ee.ethz.ch/cvl/DIV2K/DIV2K_train_HR.zip**
+
 ## Preprocessing
 
 High res image
